@@ -25,15 +25,15 @@
 + (Async *)customQueue:()queue block:(dispatch_block_t)block;
 
 /* dispatch_after() */
-+ (Async *)main:(NSTimeInterval)after block:(dispatch_block_t)block;
++ (Async *)mainAfter:(NSTimeInterval)after block:(dispatch_block_t)block;
 
-+ (Async *)userInteractive:(NSTimeInterval)after block:(dispatch_block_t)block;
++ (Async *)userInteractiveAfter:(NSTimeInterval)after block:(dispatch_block_t)block;
 
-+ (Async *)userInitiated:(NSTimeInterval)after block:(dispatch_block_t)block;
++ (Async *)userInitiatedAfter:(NSTimeInterval)after block:(dispatch_block_t)block;
 
-+ (Async *)utility:(NSTimeInterval)after block:(dispatch_block_t)block;
++ (Async *)utilityAfter:(NSTimeInterval)after block:(dispatch_block_t)block;
 
-+ (Async *)background:(NSTimeInterval)after block:(dispatch_block_t)block;
++ (Async *)backgroundAfter:(NSTimeInterval)after block:(dispatch_block_t)block;
 
 + (Async *)customQueue:(dispatch_queue_t)queue after:(NSTimeInterval)after block:(dispatch_block_t)block;
 
@@ -52,15 +52,15 @@
 - (Async *)customQueue:(dispatch_queue_t)queue chainingBlock:(dispatch_block_t)chainingBlock;
 
 /* dispatch_after() */
-- (Async *)main:(NSTimeInterval)after block:(dispatch_block_t)block;
+- (Async *)mainAfter:(NSTimeInterval)after block:(dispatch_block_t)block;
 
-- (Async *)userInteractive:(NSTimeInterval)after block:(dispatch_block_t)block;
+- (Async *)userInteractiveAfter:(NSTimeInterval)after block:(dispatch_block_t)block;
 
-- (Async *)userInitiated:(NSTimeInterval)after block:(dispatch_block_t)block;
+- (Async *)userInitiatedAfter:(NSTimeInterval)after block:(dispatch_block_t)block;
 
-- (Async *)utility:(NSTimeInterval)after block:(dispatch_block_t)block;
+- (Async *)utilityAfter:(NSTimeInterval)after block:(dispatch_block_t)block;
 
-- (Async *)background:(NSTimeInterval)after block:(dispatch_block_t)block;
+- (Async *)backgroundAfter:(NSTimeInterval)after block:(dispatch_block_t)block;
 
 - (Async *)customQueue:(dispatch_queue_t)queue after:(NSTimeInterval)after block:(dispatch_block_t)block;
 

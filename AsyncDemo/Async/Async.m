@@ -85,27 +85,27 @@
     return [[Async alloc] initWithBlock:tmpBlock];
 }
 
-+ (Async *)main:(NSTimeInterval)after block:(dispatch_block_t)block
++ (Async *)mainAfter:(NSTimeInterval)after block:(dispatch_block_t)block
 {
     return [Async after:after block:block inQueue:[GCD mainQueue]];
 }
 
-+ (Async *)userInteractive:(NSTimeInterval)after block:(dispatch_block_t)block
++ (Async *)userInteractiveAfter:(NSTimeInterval)after block:(dispatch_block_t)block
 {
     return [Async after:after block:block inQueue:[GCD userInteractiveQueue]];
 }
 
-+ (Async *)userInitiated:(NSTimeInterval)after block:(dispatch_block_t)block
++ (Async *)userInitiatedAfter:(NSTimeInterval)after block:(dispatch_block_t)block
 {
     return [Async after:after block:block inQueue:[GCD userInitiatedQueue]];
 }
 
-+ (Async *)utility:(NSTimeInterval)after block:(dispatch_block_t)block
++ (Async *)utilityAfter:(NSTimeInterval)after block:(dispatch_block_t)block
 {
     return [Async after:after block:block inQueue:[GCD utilityQueue]];
 }
 
-+ (Async *)background:(NSTimeInterval)after block:(dispatch_block_t)block
++ (Async *)backgroundAfter:(NSTimeInterval)after block:(dispatch_block_t)block
 {
     return [Async after:after block:block inQueue:[GCD backgroundQueue]];
 }
@@ -177,27 +177,27 @@
     return [[Async alloc] initWithBlock:_chainingBlock];
 }
 
-- (Async *)main:(NSTimeInterval)after block:(dispatch_block_t)block
+- (Async *)mainAfter:(NSTimeInterval)after block:(dispatch_block_t)block
 {
     return [self after:after chainingBlock:block runInQueue:[GCD mainQueue]];
 }
 
-- (Async *)userInteractive:(NSTimeInterval)after block:(dispatch_block_t)block
+- (Async *)userInteractiveAfter:(NSTimeInterval)after block:(dispatch_block_t)block
 {
     return [self after:after chainingBlock:block runInQueue:[GCD userInteractiveQueue]];
 }
 
-- (Async *)userInitiated:(NSTimeInterval)after block:(dispatch_block_t)block
+- (Async *)userInitiatedAfter:(NSTimeInterval)after block:(dispatch_block_t)block
 {
     return [self after:after chainingBlock:block runInQueue:[GCD userInitiatedQueue]];
 }
 
-- (Async *)utility:(NSTimeInterval)after block:(dispatch_block_t)block
+- (Async *)utilityAfter:(NSTimeInterval)after block:(dispatch_block_t)block
 {
     return [self after:after chainingBlock:block runInQueue:[GCD utilityQueue]];
 }
 
-- (Async *)background:(NSTimeInterval)after block:(dispatch_block_t)block
+- (Async *)backgroundAfter:(NSTimeInterval)after block:(dispatch_block_t)block
 {
     return [self after:after chainingBlock:block runInQueue:[GCD backgroundQueue]];
 }
