@@ -10,6 +10,7 @@
 #import "Async.h"
 #import "ReactiveCocoa.h"
 #import "Masonry.h"
+#import "Apply.h"
 
 @interface ViewController ()
 
@@ -22,7 +23,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self testCancel];
+
 }
 
 - (void)testMain
