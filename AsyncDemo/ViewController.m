@@ -8,8 +8,12 @@
 
 #import "ViewController.h"
 #import "Async.h"
+#import "ReactiveCocoa.h"
+#import "Masonry.h"
 
 @interface ViewController ()
+
+@property (nonatomic, strong)Async *async;
 
 @end
 
@@ -18,7 +22,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
+    [self testCancel];
 }
 
 - (void)testMain
@@ -61,6 +65,27 @@
     }] backgroundAfter:5 block:^{
         NSLog(@"===>>> This is run on the background queue after 5 seconds");
         NSLog(@"===>>> %@",[NSThread mainThread]); 
+    }];
+}
+
+- (void)testCancel
+{
+    self.async = [Async backgroundAfter:5 block:^{
+        NSLog(@"===>>> background ");
+    }];
+    
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [button setTitle:@"button" forState:UIControlStateNormal];
+    [self.view addSubview:button];
+    [button mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.view).offset(20);
+        make.left.equalTo(self.view).offset(10);
+        make.right.equalTo(self.view).offset(-10);
+        make.height.equalTo(@44);
+    }];
+    [[button rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+        NSLog(@"==xxx=>>> %@",x);
+        [self.async cancel];
     }];
 }
 
