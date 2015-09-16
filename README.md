@@ -1,8 +1,4 @@
 # Async
-Syntactic sugar in Objective-C for asynchronous dispatches in Grand Central Dispatch
-
-#Async
----
 Syntactic sugar in Objective-C for asynchronous dispatches in Grand Central Dispatch([GCD](https://developer.apple.com/library/prerelease/ios/documentation/Performance/Reference/GCD_libdispatch_Ref/index.html))
 
 >Note:Here is the [Async](https://github.com/duemunk/Async) in Swift.
@@ -13,16 +9,16 @@ Syntactic sugar in Objective-C for asynchronous dispatches in Grand Central Disp
         NSLog(@"===>>> This is run on the main queue");
 }] background:^{
         NSLog(@"===>>> This is run on the background queue");
-    }];
+}];
 ```
 Instead of the familiar syntax for GCD:
 ```objective-c
 dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), {
     NSLog(@"===>>> This is run on the background queue");
     
-	dispatch_async(dispatch_get_main_queue(), {
+    dispatch_async(dispatch_get_main_queue(), {
         NSLog(@"===>>> This is run on the main queue, after the previous block");
-	})
+    })
 })
 ```
 
