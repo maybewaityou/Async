@@ -61,6 +61,6 @@ Async *backgroundBlock = [Async background:^{
 
 // Chain to reference
 [backgroundBlock main:^{
-       NSLog(@"===>>> This is run on the %@, after the previous block", [NSThread currentThread]);
+    NSLog(@"===>>> This is run on the %@, after the previous block", [NSThread currentThread]);
 }];
 ```
